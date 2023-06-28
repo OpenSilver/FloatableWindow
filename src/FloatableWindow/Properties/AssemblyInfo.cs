@@ -5,12 +5,10 @@ using System.Resources;
 using System;
 using System.Windows.Markup;
 
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e26dd271-436d-483d-91e2-de61b3ffe0af")]
 [assembly: AssemblyTitle("System.Windows.Controls")]
-[assembly: AssemblyDescription("FloatableWindow Silverlight Control")]
+[assembly: AssemblyDescription("FloatableWindow OpenSilver Control")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Tim Heuer")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("FloatableWindow")]
 [assembly: AssemblyCopyright("Licensed under Ms-PL")]
 [assembly: AssemblyTrademark("")]
@@ -19,6 +17,6 @@ using System.Windows.Markup;
 [assembly: ComVisible(false)]
 [assembly: AssemblyVersion("2.0.5.0")]
 [assembly: AssemblyFileVersion("3.0.40624.4")]
-[assembly: CLSCompliant(true)]
 [assembly: XmlnsPrefix("clr-namespace:System.Windows.Controls;assembly=FloatableWindow", "windows")]
 [assembly: XmlnsDefinitionAttribute("clr-namespace:System.Windows.Controls;assembly=FloatableWindow", "System.Windows.Controls")]
+//[assembly: CLSCompliant(true)]
