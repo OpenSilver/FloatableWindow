@@ -1,0 +1,1 @@
+dotnet pack %~dp0../FloatableWindow/FloatableWindow.OpenSilver.csproj -c "Debug"
