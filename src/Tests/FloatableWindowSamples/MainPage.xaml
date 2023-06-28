@@ -1,0 +1,33 @@
+﻿<Page x:Class="FloatableWindowSamples.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="clr-namespace:FloatableWindowSamples"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+
+    <Canvas x:Name="LayoutRoot">
+        <StackPanel Canvas.Top="20"
+                    Canvas.Left="20">
+            <Button Content="FloatableWindow.Show()"
+                    Click="Button_Click" />
+            <Button Content="FloatableWindow.ShowDialog()"
+                    Click="Button_Click_1" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="X: "
+                           VerticalAlignment="Center" />
+                <TextBox x:Name="hOffsetTB"
+                         Width="35" />
+                <TextBlock Text="Y: "
+                           VerticalAlignment="Center" />
+                <TextBox x:Name="vOffsetTB"
+                         Width="35" />
+                <Button Content="FloatableWindow.Show(x, y)"
+                        Click="Button_Click_2" />
+            </StackPanel>
+        </StackPanel>
+
+
+    </Canvas>
+
+</Page>

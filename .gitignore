@@ -396,3 +396,10 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+src/Tests/FloatableWindowSamples.Browser/wwwroot/**/*
+!src/Tests/FloatableWindowSamples.Browser/wwwroot/BlazorLoader.js
+!src/Tests/FloatableWindowSamples.Browser/wwwroot/favicon.ico
+!src/Tests/FloatableWindowSamples.Browser/wwwroot/index.html
+!src/Tests/FloatableWindowSamples.Browser/wwwroot/loading-indicator.css
+!src/Tests/FloatableWindowSamples.Browser/wwwroot/loading-indicator.js
