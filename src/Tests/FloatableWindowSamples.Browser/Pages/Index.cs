@@ -1,8 +1,7 @@
-﻿using DotNetForHtml5;
-using FloatableWindowSamples.Browser.Interop;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
-using Microsoft.JSInterop;
+using OpenSilver.WebAssembly;
 
 namespace FloatableWindowSamples.Browser.Pages
 {
@@ -13,14 +12,10 @@ namespace FloatableWindowSamples.Browser.Pages
         {
         }
 
-        protected override void OnInitialized()
+        protected async override Task OnInitializedAsync()
         {
-            base.OnInitialized();
-            Cshtml5Initializer.Initialize(new UnmarshalledJavaScriptExecutionHandler(JSRuntime));
-            Program.RunApplication();
+            await base.OnInitializedAsync();
+            await Runner.RunApplicationAsync<FloatableWindowSamples.App>();
         }
-
-        [Inject]
-        private IJSRuntime JSRuntime { get; set; }
     }
 }

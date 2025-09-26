@@ -616,7 +616,7 @@ namespace System.Windows.Controls
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">Event args.</param>
-        internal void Application_Exit(object sender, EventArgs e)
+        internal void Application_Exit(object sender, ExitEventArgs e)
         {
             if (this.IsOpen)
             {
@@ -1407,7 +1407,7 @@ namespace System.Windows.Controls
         {
             if (Application.Current != null && Application.Current.Host != null && Application.Current.Host.Content != null)
             {
-                Application.Current.Exit += new EventHandler(this.Application_Exit);
+                Application.Current.Exit += this.Application_Exit;
                 Application.Current.Host.Content.Resized += new EventHandler(this.Page_Resized);
             }
 
@@ -1466,7 +1466,7 @@ namespace System.Windows.Controls
         {
             if (Application.Current != null && Application.Current.Host != null && Application.Current.Host.Content != null)
             {
-                Application.Current.Exit -= new EventHandler(this.Application_Exit);
+                Application.Current.Exit -= this.Application_Exit;
                 Application.Current.Host.Content.Resized -= new EventHandler(this.Page_Resized);
             }
 

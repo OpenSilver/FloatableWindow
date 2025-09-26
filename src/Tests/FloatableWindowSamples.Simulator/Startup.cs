@@ -1,5 +1,5 @@
-﻿using OpenSilver.Simulator;
-using System;
+﻿using System;
+using OpenSilver.Simulator;
 
 namespace FloatableWindowSamples.Simulator
 {
