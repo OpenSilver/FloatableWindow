@@ -10,7 +10,7 @@
     <DefineSilverlight>true</DefineSilverlight>
     <DefineTrace>true</DefineTrace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>3.2.3</PackageVersion>
     <NuspecFile>..\NuGet\FloatableWindow.nuspec</NuspecFile>
     <NuspecProperties>PackageVersion=$(PackageVersion);OpenSilverDependencyVersion=$(OpenSilverVersion);Configuration=$(Configuration)</NuspecProperties>
   </PropertyGroup>
