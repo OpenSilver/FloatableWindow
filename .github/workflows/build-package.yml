@@ -1,0 +1,68 @@
+name: OpenSilver.FloatableWindow Build
+
+env:
+  NEXT_RELEASE_VERSION: '3.4.0'
+
+on:
+  workflow_dispatch:
+    inputs:
+        opensilver-version:
+            description: 'OpenSilver version'
+            required: true
+        version:
+            description: 'OpenSilver.FloatableWindow package version'
+            required: false
+            default: ''
+        publish-myget:
+            description: 'Publish to MyGet.org'
+            required: false
+            type: boolean
+            default: true
+        publish-nuget-org:
+            description: 'Publish to NuGet.org'
+            required: false
+            type: boolean
+            default: false
+
+jobs:
+  Build-Pack-Publish:
+    if: github.repository_owner == 'OpenSilver'
+    runs-on: windows-latest
+    steps:
+      - uses: microsoft/setup-msbuild@v1.1
+      - name: Inject slug/short variables
+        uses: rlespinasse/github-slug-action@v3.x
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.x'
+          dotnet-quality: 'ga'
+
+      - name: Clone FloatableWindow repo
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Format Package Version
+        id: version
+        shell: pwsh
+        run: |
+          $v = "${{ github.event.inputs.version }}"
+          if ([string]::IsNullOrWhiteSpace($v))
+          {
+            $timestamp = Get-Date -Format "yyyy-MM-dd-HHmmss"
+            $v = "$env:NEXT_RELEASE_VERSION-preview-$timestamp-$env:GITHUB_SHA_SHORT"
+          }
+          "value=$v" >> $env:GITHUB_OUTPUT
+
+      - name: Build OpenSilver.FloatableWindow NuGet package
+        run: ./build/Build_NuGet.bat ${{ steps.version.outputs.value }} ${{ github.event.inputs.opensilver-version }}
+
+      - name: Upload packages to MyGet
+        if: ${{ inputs['publish-myget'] }}
+        run: |
+           dotnet nuget push "build\output\*.nupkg" -k ${{ secrets.MYGET_TOKEN }} -s https://www.myget.org/F/opensilver/api/v2/package
+
+      - name: Upload packages to NuGet.org
+        if: ${{ inputs['publish-nuget-org'] }}
+        run: |
+           dotnet nuget push "build\output\*.nupkg" -k ${{ secrets.NUGET_ORG_API_KEY }} -s https://api.nuget.org/v3/index.json
