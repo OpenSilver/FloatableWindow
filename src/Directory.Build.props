@@ -1,5 +1,5 @@
 <Project>
   <PropertyGroup>
-	  <OpenSilverVersion>3.2.3</OpenSilverVersion>
+    <OpenSilverVersion Condition=" '$(OpenSilverVersion)' == '' ">3.3.0</OpenSilverVersion>
   </PropertyGroup>
 </Project>

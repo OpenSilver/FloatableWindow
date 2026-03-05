@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.6.33723.286
+# Visual Studio Version 18
+VisualStudioVersion = 18.3.11520.95 d18.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FloatableWindow.OpenSilver", "FloatableWindow\FloatableWindow.OpenSilver.csproj", "{BBAF7FEB-BA9E-4F45-97A7-74E6E07BEE64}"
 EndProject
@@ -12,6 +12,16 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FloatableWindowSamples.Browser", "Tests\FloatableWindowSamples.Browser\FloatableWindowSamples.Browser.csproj", "{CCCE9D90-2FA9-4AF2-B914-E5AFCF1EB35F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FloatableWindowSamples.Simulator", "Tests\FloatableWindowSamples.Simulator\FloatableWindowSamples.Simulator.csproj", "{D92DC18D-C58A-4D17-9D7A-A12F71312059}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7BE9DA29-8FEE-4093-BD56-162B18DE91B6}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
+		..\.github\workflows\build-package.yml = ..\.github\workflows\build-package.yml
+		..\build\Build_NuGet.bat = ..\build\Build_NuGet.bat
+		Directory.Build.props = Directory.Build.props
+		..\build\nuspec\FloatableWindow.nuspec = ..\build\nuspec\FloatableWindow.nuspec
+		nuget.config = nuget.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
